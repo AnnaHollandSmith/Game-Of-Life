@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="game-of-life.css">
+    <h1>JavaScript Implementation of<br /> Conway's Game Of Life</h1>
+    <h2>The Rules of the Game</h2>
+    <ul>
+      <li>1) Any live cell with fewer than two live neighbors dies,
+          as if caused by under-population.</li>
+      <li>2) Any live cell with two or three live neighbors lives
+          on to the next generation.</li>
+      <li>3) Any live cell with more than three live neighbors dies,
+          as if by overcrowding.</li>
+      <li>4) Any dead cell with exactly three live neighbors becomes
+          a live cell, as if by reproduction.</li>
+    </ul>
+  </head>
+  <body>
+
+    <div id="grid">
+      <canvas id="canvas" onclick="swapAlive();" width="300" height="300"></canvas>
+      </div>
+      <script src="view.js"></script>
+      <script src="game-of-life.js"></script>
+      <br /><br />
+      <div id="description">
+        <h3>Hint: Click start to begin. In start mode,
+            you may swap the status of cells.</h3>
+        * Click anywhere on the canvas to swap a cell's
+          status (alive or dead)<br />
+        * Can change the interval speed when paused.
+    </div>
+
+    <div id="controls">
+      <button onclick="gol();">Start - (random assortment)</button>
+      <button onclick="pause();">Pause</button><br />
+      Speed:<input id="genSpeed" type="range" onchange="genSpeed();"
+        min="1" max="1500" value="500"><br />
+
+      Live cell color:
+      <input type="color" id="liveColor" onchange="display(this);"
+        value="#00FF00"><br />
+      Dead cell color:
+      <input type="color" id="deadColor" onchange="display(this);"
+        value="#d3d3d3">
+
+    </div>
+  </body>
+</html>
